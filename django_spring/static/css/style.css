@@ -8,7 +8,15 @@
     text-align:left;
     color: #fff;
 }
+.main{
+	padding-left: 150px;
+	padding-right: 200px;
+}
 .button{
-	margin-top: 30px;
-	margin-left: 50px;
+	margin-top: 13px;
+	
+}
+.tb{
+	margin-top: 15px;
+	
 }

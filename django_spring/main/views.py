@@ -13,8 +13,7 @@ def index(request):
 
 def completed(request):
     dict = {
-        "Task 0": ["10/09/2018", "12/09/2018", "admin", "Not Done"],
-
+        "Task 0": ["10/09/2018", "12/09/2018", "admin", "Not Done"]
     }
     context = {"tasks": dict}
     return render(request, 'completed_todo_list.html', context)

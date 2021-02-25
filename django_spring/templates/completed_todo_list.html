@@ -1,0 +1,64 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% bootstrap_css %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+	<header>
+		<div class="header">
+			<h5>BFDjango TODO</h>
+		</div>
+	</header>
+	<main>
+
+		<div class="main">
+			<div class="button">
+				<button type="button" class="btn btn-primary">Add Task</button>
+			</div>
+			<div class="tb">
+				<div class="table">
+					<table  class="table">
+							<tr>
+								<th>
+									<h1 style="margin-bottom: -1.5rem;">Completed tasks in "List 1"</h1>
+								</th>
+							</tr>
+					</table>
+					<table  class="table   table-hover">
+						<thead>
+							<tr>
+								<th>Task</th>
+								<th>Created</th>
+								<th>Due on</th>
+								<th>Owner</th>
+								<th>Mark</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for task,value in tasks.items %}
+							<tr>
+								<td>{{ task }}</td>
+								<td>{{ value.0 }}</td>
+								<td>{{ value.1}}</td>
+								<td>{{ value.2}}</td>
+								<td > <button type="button" class="btn btn-info btn-sm">{{ value.3}}</button></td>
+
+
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+            <a href={% url "index" %}><button type="button" class="btn btn-warning btn-sm">View incomplete tasks</button></a>
+<button type="button" class="btn btn-danger btn-sm">Delete this list</button>
+		</div>
+	</main>
+
+</body>
+</html>

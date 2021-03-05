@@ -1,0 +1,70 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% bootstrap_css %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+	<header>
+		<div class="header">
+			<h5>BFDjango TODO</h>
+		</div>
+	</header>
+	<main>
+
+		<div class="main">
+			<div class="button">
+				<button type="button" class="btn btn-primary">Add Task</button>
+			</div>
+			<div class="tb">
+				<div class="table">
+					<table  class="table">
+							<tr>
+								<th>
+									<h1 style="margin-bottom: -1.5rem;">Completed tasks in "{{ todolist.list_name }}"</h1>
+								</th>
+							</tr>
+					</table>
+					<table  class="table   table-hover">
+						<thead>
+							<tr>
+								<th>Task</th>
+								<th>Created</th>
+								<th>Due on</th>
+								<th>Owner</th>
+								<th>Mark</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for task in completed_tasks %}
+							<tr>
+								<td>{{ task.goal }}</td>
+								<td>{{ task.created|date:"d/m/Y"}}</td>
+								<td>{{ task.due_on|date:"d/m/Y"}}</td>
+								<td>{{ task.owner}}</td>
+								<td > <button type="button" class="btn btn-info btn-sm">
+
+
+                                    Not Done
+
+
+                                </button></td>
+
+
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+            <a href="{% url 'main:index' todolist.id %}"><button type="button" class="btn btn-warning btn-sm">View incomplete tasks</button></a>
+<button type="button" class="btn btn-danger btn-sm">Delete this list</button>
+		</div>
+	</main>
+
+</body>
+</html>
